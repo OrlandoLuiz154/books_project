@@ -8,15 +8,18 @@ frm.addEventListener("submit", (e) => {
 
   const urlCadastro = `https://booked-production.up.railway.app/api/books/${autor}`;
 
-  fetch(urlCadastro)
-    .then(async (response) => {
-      const contentType = response.headers.get("content-type");
-
-      if (contentType && contentType.includes("application/json")) {
-        return await response.json();
-      } else {
-        return await response.text();
+  fetch(urlCadastro, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({}),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro na requisição");
       }
+      return response.json();
     })
     .then((data) => {
       console.log("Retorno do cadastro:", data);
