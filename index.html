@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Front-end API Java</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div id="cabecalho">
+      <img src="img/logo.jpg" id="logo" />
+      <h1>Books</h1>
+    </div>
+
+    <div class="container">
+      <div class="containerDiv">
+        <form class="navbarForm" id="formCadastro">
+          <label for="inAutor">Nome do Autor:</label>
+          <input type="text" id="inAutor" name="inAutor" required />
+          <input type="submit" value="Cadastrar Autor" class="button" />
+        </form>
+      </div>
+
+      <span id="outResultado"></span>
+    </div>
+
+    <div class="container">
+      <div class="containerDiv">
+        <button onclick="ListarLivros()" class="button">Listar Dados</button>
+      </div>
+
+      <ul id="resultado"></ul>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/funcoes.js"></script>
+  </body>
+</html>
