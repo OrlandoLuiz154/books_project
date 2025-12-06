@@ -1,33 +1,41 @@
-let outResultado = document.getElementById("outResultado");
+// Seleciona elementos
 const frm = document.getElementById("formCadastro");
+const outResultado = document.getElementById("outResultado");
 
-frm.addEventListener("submit", (e) => {
+// Evento do formulário
+frm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  let autor = document.getElementById("inAutor").value;
+  const autor = document.getElementById("inAutor").value.trim();
 
-  const urlCadastro = `https://booked-production.up.railway.app/api/books/${autor}`;
+  if (!autor) {
+    outResultado.textContent = "Digite um nome válido.";
+    return;
+  }
 
-  fetch(urlCadastro, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({}),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erro na requisição");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Retorno do cadastro:", data);
-      outResultado.textContent = "Autor cadastrado com sucesso!";
-      frm.reset();
-    })
-    .catch((error) => {
-      console.error("Erro:", error);
-      outResultado.textContent = "Erro ao cadastrar autor.";
+  // Monta a URL: /api/books/{author}
+  const url = `https://booked-production.up.railway.app/api/books/${encodeURIComponent(
+    autor
+  )}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ autor }), // Corpo enviado para API
     });
+
+    if (!response.ok) {
+      throw new Error(`Erro: ${response.status}`);
+    }
+
+    const dados = await response.json();
+    outResultado.textContent = "Autor cadastrado com sucesso!";
+    console.log("Resposta da API:", dados);
+  } catch (erro) {
+    console.error("Erro ao cadastrar:", erro);
+    outResultado.textContent = "Erro ao cadastrar autor (ver console).";
+  }
 });
