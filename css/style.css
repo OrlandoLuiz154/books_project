@@ -48,8 +48,25 @@ h1 {
   outline: none;
 }
 
+.navbarForm #inBuscarAutor {
+  padding: 15px 20px;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  width: 150px;
+}
+
+.navbarForm #inBuscarAutor:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
 .container {
   display: flex;
+  flex-direction: column;
   background: white;
   padding: 15px;
   margin-top: 65px;
@@ -94,4 +111,32 @@ h1 {
   transform: translateY(var(--profundidade));
   box-shadow: 0 0 0 var(--cor-sombra);
   background-color: var(--cor-sombra);
+}
+
+.tabelaLivros {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.tabelaLivros th {
+  background-color: #3498db;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.tabelaLivros td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.tabelaLivros tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabelaLivros tr:hover {
+  background-color: #dce4f7;
+  transition: 0.2s;
 }
