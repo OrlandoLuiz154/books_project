@@ -27,10 +27,12 @@ frmCadastro.addEventListener("submit", async (e) => {
       }
 
       outResultado.textContent = "Autor cadastrado com sucesso!";
+      outResultado.className = "sucesso";
     })
     .catch((erro) => {
       console.error("Erro ao cadastrar:", erro);
       outResultado.textContent = "Falha ao cadastrar o autor";
+      outResultado.className = "erro";
     });
 });
 
