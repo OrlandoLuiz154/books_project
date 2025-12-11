@@ -66,7 +66,7 @@ frmBuscarAutor.addEventListener("submit", (e) => {
         return;
       }
 
-      // ----- Cabeçalho da Tabela -----
+      // Cabeçalho da Tabela
       const header = document.createElement("tr");
 
       const thAutor = document.createElement("th");
@@ -79,7 +79,7 @@ frmBuscarAutor.addEventListener("submit", (e) => {
       header.appendChild(thNome);
       tabela.appendChild(header);
 
-      // ----- Linhas da tabela -----
+      // Linhas da tabela
       data.livros.forEach((livro) => {
         const tr = document.createElement("tr");
 
