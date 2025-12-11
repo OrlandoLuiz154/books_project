@@ -17,7 +17,7 @@ function ListarLivros() {
         resultado.appendChild(tr);
         return;
       }
-      // ----- Cabeçalho da Tabela -----
+      // Cabeçalho da Tabela
       const header = document.createElement("tr");
       const thAutor = document.createElement("th");
       thAutor.textContent = "Autor";
@@ -27,7 +27,7 @@ function ListarLivros() {
       header.appendChild(thNome);
       resultado.appendChild(header);
 
-      // ----- Linhas da tabela -----
+      // Linhas da tabela
       data.livros.forEach((livro) => {
         const tr = document.createElement("tr");
         const tdAutor = document.createElement("td");
